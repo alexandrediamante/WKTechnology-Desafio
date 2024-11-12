@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7529CD86-DFF1-4428-ABBA-C2CA9A9BD3B8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="WkPedidos.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="WkPedidos">
+        <MSBuild Projects="WkPedidos.dproj"/>
+    </Target>
+    <Target Name="WkPedidos:Clean">
+        <MSBuild Projects="WkPedidos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WkPedidos:Make">
+        <MSBuild Projects="WkPedidos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="WkPedidos"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="WkPedidos:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="WkPedidos:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
